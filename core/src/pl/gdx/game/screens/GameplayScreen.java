@@ -1,5 +1,17 @@
 package pl.gdx.game.screens;
 
-public class GameplayScreen {
+import pl.gdx.game.TutorialClickerGame;
+
+public class GameplayScreen extends AbstractScreen{
+
+	public GameplayScreen(TutorialClickerGame game) {
+		super(game);
+		init();
+	}
+
+	private void init() {
+		// TODO Auto-generated method stub
+		
+	}
 
 }
