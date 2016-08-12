@@ -12,7 +12,6 @@ public class SplashScreen extends AbstractScreen{
 
 	public SplashScreen(final TutorialClickerGame game) {
 		super(game);
-		init();
 		
 		Timer.schedule(new Task() {
 			public void run() {
@@ -21,9 +20,11 @@ public class SplashScreen extends AbstractScreen{
 		}, 1);
 	}
 
-	private void init() {
+	@Override
+	protected void init() {
 		// TODO assets manager
 		splashImg = new Texture("badlogic.jpg");
+		
 	}
 	
 	@Override
@@ -34,6 +35,10 @@ public class SplashScreen extends AbstractScreen{
 		spriteBatch.draw(splashImg,0,0);
 		spriteBatch.end();
 	}
+
+
+
+	
 	
 	
 }
