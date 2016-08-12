@@ -36,7 +36,9 @@ public class GameplayScreen extends AbstractScreen{
 		playerButton.addListener(new ClickListener(){
 			@Override
 			public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
-				// TODO Auto-generated method stub
+				
+				player.reactOnClick();
+				
 				return super.touchDown(event, x, y, pointer, button);
 			}
 			
