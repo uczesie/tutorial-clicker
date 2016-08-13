@@ -55,8 +55,6 @@ public class GameplayScreen extends AbstractScreen {
 				player.reactOnClick();
 				game.addPoint();
 
-				System.out.println(game.getPoints());
-
 				return super.touchDown(event, x, y, pointer, button);
 			}
 
@@ -80,7 +78,9 @@ public class GameplayScreen extends AbstractScreen {
 	}
 
 	private void update() {
+		scoreLabel.setText("Score: " + game.getPoints());
 		stage.act();
+
 	}
 
 }
