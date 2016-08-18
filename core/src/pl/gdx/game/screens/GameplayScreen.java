@@ -42,13 +42,7 @@ public class GameplayScreen extends AbstractScreen {
 				game.resetGameScore();
 			}
 		});
-		
-
 		stage.addActor(resetScoreButton);
-		
-		
-
-
 	}
 
 	private void initScoreLabel() {
