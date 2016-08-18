@@ -12,12 +12,13 @@ import pl.gdx.game.TutorialClickerGame;
 import pl.gdx.game.entities.Player;
 import pl.gdx.game.ui.IClickCallback;
 import pl.gdx.game.ui.PlayerButton;
+import pl.gdx.game.ui.ResetScoreButton;
 
 public class GameplayScreen extends AbstractScreen {
 
 	private Player player;
 	private PlayerButton playerButton;
-	private Button resetScoreButton;
+	private ResetScoreButton resetScoreButton;
 	private Label scoreLabel;
 
 	public GameplayScreen(TutorialClickerGame game) {
@@ -34,25 +35,19 @@ public class GameplayScreen extends AbstractScreen {
 	}
 
 	private void initResetScoreButton() {
-		resetScoreButton = new Button(new ButtonStyle());
-		resetScoreButton.setWidth(100);
-		resetScoreButton.setHeight(100);
-		resetScoreButton.setX(330);
-		resetScoreButton.setY(560);
-		resetScoreButton.setDebug(true);
+		resetScoreButton = new ResetScoreButton(new IClickCallback() {
+			
+			@Override
+			public void onClick() {
+				game.resetGameScore();
+			}
+		});
+		
 
 		stage.addActor(resetScoreButton);
 		
-		resetScoreButton.addListener(new ClickListener(){
-			@Override
-			public boolean touchDown(InputEvent event, float x, float y,
-					int pointer, int button) {
-				
-				game.resetGameScore();
-				
-				return super.touchDown(event, x, y, pointer, button);
-			}
-});
+		
+
 
 	}
 
@@ -71,19 +66,16 @@ public class GameplayScreen extends AbstractScreen {
 			@Override
 			public void onClick() {
 				player.reactOnClick();
-				game.addPoint();
-				
+				game.addPoint();			
 			}
 		});
 		
-		stage.addActor(playerButton);
-		
+		stage.addActor(playerButton);		
 	}
 
 	private void initPlayer() {
 		player = new Player();
 		stage.addActor(player);
-
 	}
 
 	@Override
