@@ -1,18 +1,13 @@
 package pl.gdx.game.screens;
 
-import com.badlogic.gdx.graphics.g2d.BitmapFont;
-import com.badlogic.gdx.scenes.scene2d.InputEvent;
-import com.badlogic.gdx.scenes.scene2d.ui.Button;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
-import com.badlogic.gdx.scenes.scene2d.ui.Label.LabelStyle;
-import com.badlogic.gdx.scenes.scene2d.ui.Button.ButtonStyle;
-import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 
 import pl.gdx.game.TutorialClickerGame;
 import pl.gdx.game.entities.Player;
 import pl.gdx.game.ui.IClickCallback;
 import pl.gdx.game.ui.PlayerButton;
 import pl.gdx.game.ui.ResetScoreButton;
+import pl.gdx.game.ui.ScoreLabel;
 
 public class GameplayScreen extends AbstractScreen {
 
@@ -45,12 +40,8 @@ public class GameplayScreen extends AbstractScreen {
 		stage.addActor(resetScoreButton);
 	}
 
-	private void initScoreLabel() {
-		LabelStyle labelStyle = new LabelStyle();
-		labelStyle.font = new BitmapFont();
-		scoreLabel = new Label("", labelStyle);
-		scoreLabel.setX(20);
-		scoreLabel.setY(650);
+	private void initScoreLabel() {		
+		scoreLabel = new ScoreLabel();
 		stage.addActor(scoreLabel);
 	}
 
