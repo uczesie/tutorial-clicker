@@ -23,7 +23,7 @@ public class SplashScreen extends AbstractScreen{
 	@Override
 	protected void init() {
 		// TODO assets manager
-		splashImg = new Texture("badlogic.jpg");
+		splashImg = new Texture("splash.png");
 		
 	}
 	
