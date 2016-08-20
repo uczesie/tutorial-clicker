@@ -1,6 +1,7 @@
 package pl.gdx.game.screens;
 
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 
 import pl.gdx.game.TutorialClickerGame;
@@ -16,20 +17,25 @@ public class GameplayScreen extends AbstractScreen {
 	private Player player;
 	private PlayerButton playerButton;
 	private ResetScoreButton resetScoreButton;
-	private Texture bgTexture;
+	private Image bgImg;
 
 	public GameplayScreen(TutorialClickerGame game) {
 		super(game);
 	}
 
 	@Override
-	protected void init() {
-		bgTexture = new Texture("bg.png");
+	protected void init() {		
+		initBg();
 		initPlayer();
 		initPlayerButton();
 		initResetScoreButton();
 		initScoreLabel();
 
+	}
+
+	private void initBg() {
+		bgImg = new Image(new Texture("bg.png"));
+		stage.addActor(bgImg);
 	}
 
 	private void initResetScoreButton() {
@@ -71,10 +77,6 @@ public class GameplayScreen extends AbstractScreen {
 		super.render(delta);
 		update();
 		
-		spriteBatch.begin();
-		spriteBatch.draw(bgTexture, 0, 0);
-		spriteBatch.end();
-
 		spriteBatch.begin();
 		stage.draw();
 		spriteBatch.end();
