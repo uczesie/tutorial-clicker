@@ -2,9 +2,10 @@ package pl.gdx.game.screens;
 
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
-import com.badlogic.gdx.scenes.scene2d.ui.Label;
 
 import pl.gdx.game.TutorialClickerGame;
+import pl.gdx.game.entities.FlyingObject;
+import pl.gdx.game.entities.FlyingObject.FlyingObjectType;
 import pl.gdx.game.entities.Player;
 import pl.gdx.game.ui.IClickCallback;
 import pl.gdx.game.ui.PlayerButton;
@@ -13,7 +14,8 @@ import pl.gdx.game.ui.ScoreLabel;
 
 public class GameplayScreen extends AbstractScreen {
 
-	private Label scoreLabel;
+	private FlyingObject flyingObject1;
+	private ScoreLabel scoreLabel;
 	private Player player;
 	private PlayerButton playerButton;
 	private ResetScoreButton resetScoreButton;
@@ -30,7 +32,14 @@ public class GameplayScreen extends AbstractScreen {
 		initPlayerButton();
 		initResetScoreButton();
 		initScoreLabel();
+		initFlyingObjects();
 
+	}
+
+	private void initFlyingObjects() {
+		flyingObject1 = new FlyingObject(FlyingObjectType.PASSIVE, game);
+		stage.addActor(flyingObject1);
+		flyingObject1.flyLikeHell();
 	}
 
 	private void initBg() {
